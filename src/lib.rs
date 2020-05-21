@@ -24,6 +24,8 @@
 extern crate sgx_tstd as std;
 #[cfg(all(feature = "std", feature = "mesalock_sgx", target_env = "sgx"))]
 extern crate std;
+#[cfg(all(feature = "std", not(feature = "mesalock_sgx")))]
+extern crate std;
 
 // Only `no_std` builds actually use `libm`.
 #[cfg(all(not(feature = "std"), feature = "libm"))]
